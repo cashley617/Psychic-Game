@@ -5,10 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word-Guess-Game</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
 
+    <h1>Guess A Word!</h1>
+
+    <h2>Press any key to get started</h2>
+
+    <h4>Wins: </h4>
+
+    <h4>Number of Guesses Remaining: </h4>
+
+    <h4>Letters Already Guessed: </h4>
+
+
+
+
+
+
+
+
+
+    <!-- Hint Code JS: 
+
+    const wordSpot = document.getElementById('wordSpot');
+    const randomWord = 'brubiserb';
+    let guessedLetter = 'b'
     
+    function displayRandomWord() {
+    // output dashes
+    let output = '';
+    for (let i = 0; i < randomWord.length; i++) { console.log(randomWord.charAt(i)); if
+        (guessedLetter===randomWord.charAt(i)) { output +=guessedLetter; } else { output +='_' ; } output +=' ' ; }
+        wordSpot.innerText=output.trim(); } displayRandomWord(); -->
+
+
+    <script src="assets/javascript/game.js">
+    
+    </script>
     
 </body>
 </html>
