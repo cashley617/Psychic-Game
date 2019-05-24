@@ -46,22 +46,10 @@ while (beerLetters > 0) {
                 beerLetters--;
             }
         }
-    };
+    }
+};
 
-    
+alert(emptyWord.join(" "));
 
-    alert(emptyWord.join(" "));
-
-    // This is running too soon 
-    alert("You did it! You guessed the right word, " + randomWord);
-
-
-
-
-
-
-
-
-
-
-}
+// Confirms the user won with completed word 
+alert("You did it! You guessed the right word, " + randomWord + "!");
