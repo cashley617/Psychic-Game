@@ -49,12 +49,11 @@ function setEventListeners() {
 
 function checkIfUserLost() {
     if (guessesRemaining <= 0) {
-        alert("You lost")
-        initGame();
+        alert("You lost");
     }
 }
 
-function shouldGuessesGoDown(letterGuessed) {
+function shouldGuessesGoDown(lettersGuessed) {
     if(!currentWord.includes(lettersGuessed)) {
         guessesRemaining--;
     } 

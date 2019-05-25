@@ -1,103 +1,93 @@
 
-
-let magicWord = document.getElementById("magicWord");
+let currentWord = ''; 
 let wins = 0;
-let counter = 10;
-let oldLetters = [];
-
-
-
-
-// List of beer words 
-let beerWord = [
-    "pint",
-    "stein",
-    "souripa",
-    "lager",
-    "saison",
-    "porter",
-    "wheat",
-    "firkin"
+let guessesRemaining = 8;
+let lettersGuessed = [];
+let beerWords = [
+  'pint',
+  'stein',
+  'souripa',
+  'lager',
+  'saison',
+  'porter',
+  'wheat',
+  'firkin',
+  'ibu',
+  'paleale',
+  'hopped',
+  'dryhopped',
+  'session',
+  'double',
+  'lambic',
 ];
 
-// Equation to randomize the beer words list 
-let randomWord = beerWord[Math.floor(Math.random() * beerWord.length)];
 
-// Variable to create an empty array, for the selected beer word 
-let emptyWord = []; 
-
-
-
-// For loop to add placeholders for the empty letters 
-for (let i = 0; i < randomWord.length; i++) {
-    // emptyWord[i] = "_";
-    // magicWord.text(emptyWord[i] = "_");
-    emptyWord[i] = "_"
+function initGame() {
+    assignCurrentWord();
+    setEventListeners();
+    updateDOM();
 }
 
-magicWord.text(emptyWord.join(" "));
-
-console.log(emptyWord)
-let beerLetters = randomWord.length; 
-// let magicWord = $("#magicWord");
+initGame();
 
 
-// How many guesses they have left 
+function wordHasBeenGuessed() {
+    for (let i = 0; i < currentWord.length; i++) {
+        if(lettersGuessed.includes(currentWord[i])) {
 
-// let counter = (magicWord) + 3;
-
-// // Letters already guessed  
-// let oldLetters = document.getElementById("oldLetters");
-
-
-
-
-// Main section for game to be in progress 
-while (beerLetters > 0) {
-
-    // Should this be an alert? 
-    alert(emptyWord.join(" "));
-    // magicWord.innerHTML = emptyWord.join(" ");
-
-
-    // Should this be a prompt?
-    let guess = prompt("Guess a letter!");
-
-
-    // Trying to log the letters already guessed 
-    function onKeyUp(event) {
-        // oldLetters.push(guess);
-        console.log(guess);
-        oldLetters.innerText = guess;
-    }
-
-    // Might change this to the if else we learned in class 
-    if (guess === null) {
-        break; 
-    } else if (guess.length !== 1) {
-        alert("Please enter a single letter");
-    } else { 
-        for (let n = 0; n < randomWord.length; n++) {
-            if (randomWord[n] === guess) {
-                emptyWord[n] = guess;
-                beerLetters--;
-                counter--;
-                // oldLetters.push(guess[n]);
-                onKeyUp();
-                // oldLetters.text(guess);
-                // oldLetters.append(guess);
-            }
+        } else {
+            return false
         }
     }
-    if (counter === 0) {
-        alert("You died!");
+    return true 
+}; 
+
+function assignCurrentWord() {
+    const index = Math.floor(Math.random() * ((beerWords.length -1) - 0 + 1)) + 0;
+    currentWord = beerWords[index];
+}; 
+
+function setEventListeners() {
+    document.onkeyup = function(event) {
+        lettersGuessed.push(event.key);
+        if(wordHasBeenGuessed()) {
+            wins++;
+            document.getElementById("wins-count").textContent = wins;
+            initGame();
+        }
+        shouldGuessesGoDown(event.key);
+        updateDOM();
+        checkIfUserLost();
     }
 };
 
-oldLetters.text(guess);
+function checkIfUserLost() {
+    if (guessesRemaining <= 0) {
+        alert("Sorry, mate. Shit outta luck!");
+    }
+}; 
 
+function shouldGuessesGoDown(lettersGuessed) {
+    if(!currentWord.includes(lettersGuessed)) {
+        guessesRemaining--;
+    }
+};
 
-alert(emptyWord.join(" "));
+function updateDOM() {
+    document.getElementById("guesses-remaining").textContent = guessesRemaining;
+    document.getElementById("letters-guessed").textContent = lettersGuessed;
+    showLettersOrDashes();
+}; 
 
-// Confirms the user won with completed word 
-alert("You did it! You guessed the right word, " + randomWord + "!");
+function showLettersOrDashes() {
+    let displayWord = '';
+    for (let i = 0; i < currentWord.length; i++) {
+        if(lettersGuessed.includes(currentWord[i])) {
+            displayWord = displayWord + currentWord[i] + ' ';
+        } else {
+            displayWord = displayWord + '_' + ' ';
+        }
+    }
+    document.getElementById("display-word").textContent = displayWord;
+}; 
+

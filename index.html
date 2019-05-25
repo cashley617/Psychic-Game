@@ -20,40 +20,23 @@
     <h2>Press any key to get started</h2>
 
     <div>
-        <h3>This is your word: <span id="magicWord"></span></h3>
+        <h3>This is your word: <span id="display-word"></span></h3>
     </div>
 
     <div>
-        <h4>Wins: <span id="wins"></span></h4>
+        <h4>Wins: <span id="wins-count"></span></h4>
     </div>
 
     <div>
-        <h4>Number of Guesses Remaining: <span id="counter"></span></h4>
+        <h4>Number of Guesses Remaining: <span id="guesses-remaining"></span></h4>
     </div>
 
     <div>
-        <h4>Letters Already Guessed: <span id="oldLetters"></span></h4>
+        <h4>Letters Already Guessed: <span id="letters-guessed"></span></h4>
     </div>
 
 
 
-
-
-
-
-
-    <!-- Hint Code JS: 
-
-    const wordSpot = document.getElementById('wordSpot');
-    const randomWord = 'brubiserb';
-    let guessedLetter = 'b'
-    
-    function displayRandomWord() {
-    // output dashes
-    let output = '';
-    for (let i = 0; i < randomWord.length; i++) { console.log(randomWord.charAt(i)); if
-        (guessedLetter===randomWord.charAt(i)) { output +=guessedLetter; } else { output +='_' ; } output +=' ' ; }
-        wordSpot.innerText=output.trim(); } displayRandomWord(); -->
 
     <script src="assets/javascript/game.js"></script>
 
