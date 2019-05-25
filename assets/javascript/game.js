@@ -1,4 +1,13 @@
 
+
+let magicWord = document.getElementById("magicWord");
+let wins = 0;
+let counter = 10;
+let oldLetters = [];
+
+
+
+
 // List of beer words 
 let beerWord = [
     "pint",
@@ -17,25 +26,29 @@ let randomWord = beerWord[Math.floor(Math.random() * beerWord.length)];
 // Variable to create an empty array, for the selected beer word 
 let emptyWord = []; 
 
-let $magicWord = $("#magicWord");
 
 
 // For loop to add placeholders for the empty letters 
 for (let i = 0; i < randomWord.length; i++) {
     // emptyWord[i] = "_";
-    $magicWord.text(emptyWord[i] = "_");
+    // magicWord.text(emptyWord[i] = "_");
+    emptyWord[i] = "_"
 }
 
+magicWord.text(emptyWord.join(" "));
+
+console.log(emptyWord)
 let beerLetters = randomWord.length; 
-// let $magicWord = $("#magicWord");
+// let magicWord = $("#magicWord");
 
 
 // How many guesses they have left 
 
-let counter = ($magicWord) + 3;
+// let counter = (magicWord) + 3;
 
-// Letters already guessed  
-let oldLetters = document.getElementById("oldLetters");
+// // Letters already guessed  
+// let oldLetters = document.getElementById("oldLetters");
+
 
 
 
@@ -44,20 +57,19 @@ while (beerLetters > 0) {
 
     // Should this be an alert? 
     alert(emptyWord.join(" "));
-    // $magicWord.innerHTML = emptyWord.join(" ");
+    // magicWord.innerHTML = emptyWord.join(" ");
 
 
     // Should this be a prompt?
     let guess = prompt("Guess a letter!");
 
+
     // Trying to log the letters already guessed 
     function onKeyUp(event) {
         // oldLetters.push(guess);
         console.log(guess);
-        oldLetters.innerText = guess; 
+        oldLetters.innerText = guess;
     }
-
-    // onKeyUp();
 
     // Might change this to the if else we learned in class 
     if (guess === null) {
@@ -72,11 +84,17 @@ while (beerLetters > 0) {
                 counter--;
                 // oldLetters.push(guess[n]);
                 onKeyUp();
+                // oldLetters.text(guess);
+                // oldLetters.append(guess);
             }
         }
     }
+    if (counter === 0) {
+        alert("You died!");
+    }
 };
 
+oldLetters.text(guess);
 
 
 alert(emptyWord.join(" "));

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
 
     <script src="https://code.jquery.com/jquery.js"></script>
+
 </head>
 <body>
 
@@ -19,23 +20,19 @@
     <h2>Press any key to get started</h2>
 
     <div>
-        <h3>This is your word: </h3>
-        <span id="magicWord"></span>
+        <h3>This is your word: <span id="magicWord"></span></h3>
     </div>
 
     <div>
-        <h4>Wins: </h4>
-        <span id="wins"></span>
+        <h4>Wins: <span id="wins"></span></h4>
     </div>
 
     <div>
-        <h4>Number of Guesses Remaining: </h4>
-        <span class="counter"></span>
+        <h4>Number of Guesses Remaining: <span id="counter"></span></h4>
     </div>
 
     <div>
-        <h4>Letters Already Guessed: </h4>
-        <span id="oldLetters"></span>
+        <h4>Letters Already Guessed: <span id="oldLetters"></span></h4>
     </div>
 
 
@@ -58,10 +55,8 @@
         (guessedLetter===randomWord.charAt(i)) { output +=guessedLetter; } else { output +='_' ; } output +=' ' ; }
         wordSpot.innerText=output.trim(); } displayRandomWord(); -->
 
+    <script src="assets/javascript/game.js"></script>
 
-    <script src="assets/javascript/game.js">
-    
-    </script>
     
 </body>
 </html>
