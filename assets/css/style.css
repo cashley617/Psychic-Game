@@ -1,0 +1,30 @@
+body {
+    background: url("../images/hops1.png");
+    background-repeat: repeat;
+}
+
+h3 {
+    font-family: 'Permanent Marker', cursive;
+    color: rgb(5, 74, 5);
+}
+
+h1, h2 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+h4 {
+    font-family: 'Rock Salt', cursive;
+}
+
+.jumbotron {
+    background-color: white;
+    text-align: center;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+.paragraph-background {
+    background-color: white;
+    text-align: center;
+    opacity: 0.95;
+}
