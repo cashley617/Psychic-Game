@@ -42,6 +42,11 @@ function wordHasBeenGuessed() {
     return true 
 }; 
 
+function restartGame() {
+    let restartGame = document.getElementsByClassName("btn");
+    restartGame.onclick = location.reload();
+};
+
 function assignCurrentWord() {
     const index = Math.floor(Math.random() * ((beerWords.length -1) - 0 + 1)) + 0;
     currentWord = beerWords[index];
